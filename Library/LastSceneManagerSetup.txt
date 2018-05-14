@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scene/Gym.unity
+  isLoaded: 1
+  isActive: 1
