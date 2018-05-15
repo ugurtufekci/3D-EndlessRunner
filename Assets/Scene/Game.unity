@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 211099877}
-  offset: {x: 0, y: 2.5, z: -2}
+  offset: {x: 0, y: 1.25, z: 0}
 --- !u!1 &1911793540
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4998588111641900, guid: 7e0d4d02d5441284a9fba503906b973c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4998588111641900, guid: 7e0d4d02d5441284a9fba503906b973c, type: 2}
       propertyPath: m_LocalPosition.z
