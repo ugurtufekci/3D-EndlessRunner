@@ -26,12 +26,13 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
+       
         //Gather the inputs on which lane we should be
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (MobileInput.Instance.SwipeLeft)
         {
             MoveLane(false); //move left
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (MobileInput.Instance.SwipeRight)
         {
             MoveLane(true); //move right
         }
@@ -57,7 +58,7 @@ public class PlayerMotor : MonoBehaviour
         {
             verticalVelocity = -0.1f;
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (MobileInput.Instance.SwipeUp)
             {
                 //Jump
                 anim.SetTrigger("Jump");
@@ -69,7 +70,7 @@ public class PlayerMotor : MonoBehaviour
             verticalVelocity -= (gravity * Time.deltaTime);
 
             //Fast Falling mechanic
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (MobileInput.Instance.SwipeDown)
             {
                 verticalVelocity = -jumpForce;
             }
