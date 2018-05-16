@@ -7,6 +7,8 @@ public class PlayerMotor : MonoBehaviour
     private const float LANE_DISTANCE = 3.0f;
     private const float TURN_SPEED = 0.05f;
 
+    //
+    private bool isRunning = false;
     //Animation
     private Animator anim;
 
@@ -26,7 +28,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
-       
+        if (!isRunning)
+            return;
         //Gather the inputs on which lane we should be
         if (MobileInput.Instance.SwipeLeft)
         {
@@ -105,5 +108,10 @@ public class PlayerMotor : MonoBehaviour
 
         return Physics.Raycast(groundRay,0.2f+ 0.1f);
        
+    }
+
+    public void StartRunning()
+    {
+        isRunning = true;
     }
 }
