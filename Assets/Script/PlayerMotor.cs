@@ -17,11 +17,19 @@ public class PlayerMotor : MonoBehaviour
     private float jumpForce = 4.0f;
     private float gravity = 12.0f;
     private float verticalVelocity;
-    private float speed = 7.0f;
+   
     private int desiredLane= 1; //0 = left 1= Middle, 2=Right
+
+    //Speed Modifier
+    private float originalSpeed = 7.0f;
+    private float speed = 7.0f;
+    private float speedIncreaseLastTick;
+    private float speedIncreaseTime = 2.5f;
+    private float speedIncreaseAmount = 0.1f;
 
     private void Start()
     {
+        speed = originalSpeed;
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
     }
@@ -30,6 +38,14 @@ public class PlayerMotor : MonoBehaviour
     {
         if (!isRunning)
             return;
+
+        if(Time.time - speedIncreaseLastTick > speedIncreaseTime)
+        {
+            speedIncreaseLastTick = Time.time;
+            speed += speedIncreaseAmount;
+            GameManager.Instance.UpdateModifier(speed-originalSpeed);
+        }
+
         //Gather the inputs on which lane we should be
         if (MobileInput.Instance.SwipeLeft)
         {

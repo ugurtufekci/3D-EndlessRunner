@@ -302,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CameraMotor.cs" />
+    <Compile Include="Assets\Script\Coin.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\MobileInput.cs" />
     <Compile Include="Assets\Script\PlayerMotor.cs" />
