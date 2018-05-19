@@ -9,11 +9,13 @@ public class PieceSpawner : MonoBehaviour {
 
     public void Spawn()
     {
-
+        //  currentPiece = //get me a new piece from the pool
+        currentPiece.gameObject.SetActive(true);
+        currentPiece.transform.SetParent(transform, false);
     }
 
     public void DeSpawn()
     {
-
+        currentPiece.gameObject.SetActive(false);
     }
 }
