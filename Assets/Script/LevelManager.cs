@@ -22,7 +22,8 @@ public class LevelManager : MonoBehaviour {
     {
         Piece p = pieces.Find(x => x.type == pt && x.visualIndex == visualIndex && !x.gameObject.activeSelf);
 
-        if(p == null)
+        if(p == null) //if we dont find it there , we have to spawn it and then put it in the pool for reuse later.
+
         {
             GameObject go = null;
             if (pt == PieceType.ramp)
@@ -41,6 +42,7 @@ public class LevelManager : MonoBehaviour {
             {
                 go = slides[visualIndex].gameObject;
             }
+
             go = Instantiate(go);
             p = go.GetComponent<Piece>();
             pieces.Add(p);
